@@ -16,7 +16,7 @@ db.connect((err) => {
     if(err) {
         throw err;
     }
-    console.log('Connecté à la base de donnée groupomania');
+    console.log('Connecté à la base de donnée groupomania ' + DB_USER );
 });
 
 module.exports = db;

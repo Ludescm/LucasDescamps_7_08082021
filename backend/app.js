@@ -1,43 +1,51 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const articleRoutes = require("./routers/article");
-const userRoutes = require("./routers/user");
-const commentRoutes = require("./routers/comment");
-const thumbRoutes = require("./routers/thumb");
-const path = require("path");
-const cors = require("./services/cors");
+// Centre de lAPI  
 
-/* Plugins de sécurité */
-//Package helmet (13 middleware pour sécuriser les données et les connexions)
-//const helmet = require("helmet");                     
-//Package hpp (to protect your system from HTTP parameter pollution attacks)
-//const hpp = require("hpp");
-//Middleware express-rate-limit pour limiter le nombre de requêtes et de tentatives de connexion
-const rateLimit = require("./services/limiter");
-const reqLimiter = require("./services/limiter");
-//Middleware toobusy.js pour empêcher le Denial of Service (DoS) en monitorant le event loop
-//const toobusy = require("./services/toobusy");
-//Middleware session.js pour sécuriser les cookies de session
-//const session = require("./services/session");
-/* Fin sécurité */
+const express       = require("express");
+const bodyParser    = require("body-parser");
+const cors          = require("cors");
+const helmet        = require("helmet");
+const path          = require("path");
+const auth          = require("./middleware/auth");
+const app           = express();
 
-var connection = require("./connectiondb");
 
-const app = express();
+const authRoutes    = require("./routes/auth")
+const userRoutes    = require("./routes/user")
+const messageRoutes = require("./routes/message")
+const commentRoutes = require("./routes/comment")
 
-app.use(cors);
-//app.use(helmet());
-//app.use(hpp());
-app.use("/auth", rateLimit.authLimiter);
-app.use("/articles", rateLimit.reqLimiter);
-//app.use(toobusy);
-//app.use(session);
+const mysql2 = require("mysql2");
+
+const { env } = require("process");
+
+app.use(helmet());
+app.use(cors());
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-//Définit les route des quatre routeurs "Article"/"User"/"Comment"/"Thumb"
-app.use("/articles", articleRoutes);
-app.use("/auth", userRoutes);
-app.use('/articles/:slug/comments', commentRoutes);
-app.use('/articles/:slug/', thumbRoutes);
+//dataBase.sequelize.sync();   // Synchronisation de la base de données grâce à Sequelize
 
-module.exports = app;
+/*const connexion = mysql2.createConnection({
+    host: env.DB_HOST || "localhost",
+    user: env.DB_USER || "root",
+    database: env.DB_NAME || "groupomania",
+    password: env.DB_PASS || "3021269411905Luc@s",
+});
+connexion.on("connection", () => {
+    console.log("Connection effectuée");
+});
+connexion.promise().query("select * from users").then(data => {
+    //console.log(data);
+});*/
+
+
+app.use("/images",          express.static(path.join(__dirname, "images")));
+app.use("/api/auth",        authRoutes);
+
+app.use("/api/users",       auth, userRoutes);
+app.use("/api/messages",    auth, messageRoutes);
+app.use("/api/comments",    auth, commentRoutes);
+
+
+module.exports = app

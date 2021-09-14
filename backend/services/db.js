@@ -1,23 +1,23 @@
+// get the client
+const mysql = require('mysql2/promise');
 
-const mysql = require("mysql2/promise");
-
-
+// Create the connection pool. The pool-specific settings are the defaults
 const dbconnexion = mysql.createPool({
-    host: process.env.DB_HOST || "localhost",
-    user: process.env.DB_USER || "root",
-    database: process.env.DB_NAME || "groupomania",
-    password: process.env.DB_PASS || "3021269411905Luc@s",
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
-dbconnexion.on("connection", () => {
-    console.log("connection etablie");
-});
+// For pool initialization, see above
+/*pool.query("SELECT field FROM atable", function(err, rows, fields) {
+    // Connection is automatically released when query resolves
+ });*/
 
-dbconnexion.on("error", () => {
-    console.log("connexion a la base de donnée echouée");
-})
+ console.log('Connexion réussie à la Database');
+// console.log(pool);
 
-exports.modules = dbconnexion;
+module.exports = dbconnexion;

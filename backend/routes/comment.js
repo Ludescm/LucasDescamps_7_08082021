@@ -7,8 +7,8 @@ router.get("/",                commentCtrl .findAllComments);
 
 router.get("/:Messageid",      commentCtrl .findOneComment);
 
-router.post("/",         auth,      commentCtrl .createComment);
+router.post("/",      commentCtrl .createComment);
 
-router.delete("/",       auth,      commentCtrl .deleteComment);
+router.delete("/",      commentCtrl .deleteComment);
 
 module.exports = router;

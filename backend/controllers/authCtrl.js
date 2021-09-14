@@ -1,6 +1,7 @@
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const User = require("../models/user");
 
 // SIGNUP / Inscription.
 
@@ -42,8 +43,7 @@ exports.login = (req, res, next) => {
   }
   User.findOneByEmail(req.body.email)
     .then(data => {
-      const user = data;
-      console.log(data);
+      var user = data[0][0];
       if (!user) {
         return res.status(404).json({ message: 'email not found' });
       }
@@ -52,13 +52,15 @@ exports.login = (req, res, next) => {
           if (!valid) {
             return res.status(401).json({ message: "mot de passe non valide" });
           }
+          console.log(user);
           res.status(200).json({
             message: "Connexion réussie",
             userId: user.id,
             role: user.isAdmin,
             userName: user.userName,
-            token: jwt.sign({ userId: user.id }, process.env.TKN_SECRET, { expiresIn: '24h' })
-          })
+            token: jwt.sign({ userId: user.id, isAdmin: user.isAdmin }, process.env.TKN_SECRET, { expiresIn: '24h' })
+          });
+          console.log("verification");
         })
         .catch(error => res.status(500).json({ error }));
     })

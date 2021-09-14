@@ -31,7 +31,7 @@ class User{
     }
 
     static findAll(){
-        const sql = "select * from users";
+        const sql = "select id, userName, email, createdAt from users";
         return dbconnexion.query(sql);
     }
 
@@ -41,12 +41,12 @@ class User{
     }
 
     update(id){
-        const sql = "UPDATE users SET userName=?, email=?, password=?, isAdmin=?, updataAt=CURRENT_TIME() WHERE id = ?";
+        const sql = "UPDATE users SET userName=?, email=?, password=?, isAdmin=?, updatedAt=CURRENT_TIME() WHERE id = ?";
         return dbconnexion.execute(sql, [this.userName, this.email, this.password, this.isAdmin]);
     }
 
     save(){
-        const sql = "INSERT INTO users (userName, email, password, isAdmin, createAt) VALUES (?, ?, ?, ?, CURRENT_TIME())";
+        const sql = "INSERT INTO users (userName, email, password, isAdmin, createdAt, updatedAt) VALUES (?, ?, ?, ?, CURRENT_TIME(), CURRENT_TIME())";
         return dbconnexion.execute(sql, [this.userName, this.email, this.password, this.isAdmin]);
     }
 }

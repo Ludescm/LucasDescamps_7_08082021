@@ -1,14 +1,14 @@
-const express       = require("express");
-const router        = express.Router();
-const userCtrl      = require("../controllers/usersCtrl");
-const auth          = require('../middleware/auth'); 
+const express = require("express");
+const router = express.Router();
+const userCtrl = require("../controllers/usersCtrl");
+const auth = require('../middleware/auth');
 
-router.get("/all/",              userCtrl.findAllUsers)
+router.get("/all/", userCtrl.findAll);
 
-router.get("/:id",               userCtrl.findOneUser)
+router.get("/:id", userCtrl.findOne);
 
-router.delete("/",      auth,    userCtrl.deleteOneUser)
+router.delete("/", userCtrl.deleteOne);
 
-router.delete("/:id",   auth,    userCtrl.deleteMyAccount)
+router.delete("/:id",userCtrl.deleteMyAccount);
 
-module.exports = router
+module.exports = router;

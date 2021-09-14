@@ -7,6 +7,7 @@ module.exports = (req, res, next) => {
         const token         = req.headers.authorization.split(" ")[1];  
         const decodedToken  = jwt.verify(token, process.env.TKN_SECRET);
         const userId        = decodedToken.userId;  
+        const isAdmin = decodedToken.isAdmin;
         if (req.body.userId && req.body.userId !== userId) {
             throw "echec de l'authentififcation"  
             } else {

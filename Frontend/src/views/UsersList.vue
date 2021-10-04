@@ -35,14 +35,14 @@
                     <h2 class="text-white text-center m-5 ">
                         LISTE DE TOUS LES UTILISATEURS
                     </h2>
-                    <div class="badge btn-primary p-3 badgeList">
+                    <div class="badge btn-danger p-3 badgeList">
                         <span class="spanBadge">NOM</span>  
                         <span class="spanBadge">EMAIL</span>
                         <span class="spanBadge">DEPUIS LE</span> 
                         <span class="spanBadge">SUPPRIMER</span> 
                     </div>
                     <div v-for="i in users" :key="i">   
-                        <div class="badge btn-primary p-3 badgeList">
+                        <div class="badge btn-danger p-3 badgeList">
                             <span class="spanBadge"> {{ i.userName.charAt(0).toUpperCase() + i.userName.slice(1) }} </span> 
                             <span class="spanBadge"> {{ i.email }} </span> 
                             <span class="spanBadge"> {{ i.createdAt.slice(0,10).split("-").reverse().join(".")}} </span>  

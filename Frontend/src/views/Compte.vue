@@ -4,7 +4,7 @@
             <div class="col-10">
                  <!-- div contenant le titre -->
                 <div class="col-12">
-                    <h1 class="my-2 btn btn-block btn-info font-weight-bold" style="cursor:default">Vous consultez vote compte</h1>
+                    <h1 class="my-2 btn btn-block btn-danger font-weight-bold" style="cursor:default">Vous consultez vote compte</h1>
                     <Home></Home>
                 </div>
                 <section id="filPrincipal" class="row">
@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                             <div class="card-body mx-auto">
-                                <div class="btn-info rounded p-3" style="cursor:default"><button class="rounded p-2" style="cursor:default"><span class="m-3 font-weight-bold">Depuis cette page vous pouvez supprimer votre compte. La suppression de votre compte entrainera également la suppression de tous les commentaires et les images que vous avez posté.</span></button></div>
+                                <div class="btn-secondary rounded p-3" style="cursor:default"><button class="rounded p-2" style="cursor:default"><span class="m-3 font-weight-bold">Depuis cette page vous pouvez supprimer votre compte. La suppression de votre compte entrainera également la suppression de tous les commentaires et les images que vous avez posté.</span></button></div>
                             </div>
                             <div class="card-body mx-auto">
                                 <div class="btn-danger rounded p-3" style="cursor:default"><button @click="deleteMyAccount(id)" class="rounded p-2"><span class="m-3 font-weight-bold">SUPPRIMER VOTRE COMPTE</span><img src="../assets/trash.svg" alt="trash" style="width:25px"></button></div>

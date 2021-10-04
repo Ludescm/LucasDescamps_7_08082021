@@ -5,7 +5,7 @@
         <main class="col-12">   
              <!-- section incluant le titre --> 
             <section class="col-12">
-                <h1 class="my-2 btn btn-block btn-warning font-weight-bold" style="cursor:default">Administration du site</h1>
+                <h1 class="my-2 btn btn-block btn-danger font-weight-bold" style="cursor:default">Administration du site</h1>
                  <Home></Home>
             </section>
             <section id="filPrincipal" class="row">
@@ -24,13 +24,13 @@
                             </div>
                             <div>
                                 <div v-if="isAdmin">
-                                    <router-link to='/Admin'><button v-if="isAdmin" type="button"  class=" btn btn-warning mx-auto rounded p-2">VOUS ÊTES L'ADMINISTRATEUR DU SITE</button></router-link> 
-                                    <router-link to='/Admin'><button  type="button"   class=" btn btn-warning mx-auto m-3 rounded p-2 buttonsPanel"><button class=" rounded p-1 m-1 "><img src="../assets/trash.svg" alt="trash" style="width:25px"> ACTIVÉE</button></button></router-link> 
+                                    <router-link to='/Admin'><button v-if="isAdmin" type="button"  class=" btn btn-danger mx-auto rounded p-2">VOUS ÊTES L'ADMINISTRATEUR DU SITE</button></router-link> 
+                                    <router-link to='/Admin'><button  type="button"   class=" btn btn-danger mx-auto m-3 rounded p-2 buttonsPanel"><button class=" rounded p-1 m-1 "><img src="../assets/trash.svg" alt="trash" style="width:25px"> ACTIVÉE</button></button></router-link> 
                                 </div>
                             </div>
                         </div>
                         <div class="card-body mx-auto">
-                            <button class="btn rounded text-black font-weight-bold" style="background-color: #ffc107;cursor: default">Vous avez le pouvoir de supprimer les messages des utilisateurs, leurs commentaires, ainsi que les utilisateurs eux-mêmes.</button>
+                            <button class="btn rounded text-white font-weight-bold" style="background-color: #dd0000;cursor: default">Vous pouvez supprimer les messages des utilisateurs, leurs commentaires, ainsi que les utilisateurs eux-mêmes.</button>
                         </div>
                     </article> 
                 </div>   
@@ -38,8 +38,8 @@
                 <article class="col col-md-8 mt-5">
                     <h2 class="text-white text-center m-5 ">FAITES VOTRE CHOIX</h2>
                     <div class="row justify-content-around">
-                        <button @click="toCommentsList()" class="btn btn-warning rounded shadow font-weight-bold p-5 m-2">MESSAGES/COMMENTS</button>
-                        <button @click="toUsersList()" class="btn btn-warning rounded shadow font-weight-bold p-5 m-2" >USERS</button>
+                        <button @click="toCommentsList()" class="btn btn-danger rounded shadow font-weight-bold p-5 m-2">MESSAGES/COMMENTS</button>
+                        <button @click="toUsersList()" class="btn btn-danger rounded shadow font-weight-bold p-5 m-2" >USERS</button>
                     </div>
                 </article>
             </section>

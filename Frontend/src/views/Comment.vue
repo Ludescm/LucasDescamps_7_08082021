@@ -4,7 +4,7 @@
     <main class="container">  
          <!-- titre -->
         <div class="row mb-4 rounded">
-            <p class="col-12 my-2 btn  btn-block btn-info badgeTopColor font-weight-bold" style="background-color: #138400" >Vous consultez les commentaires</p>  
+            <p class="col-12 my-2 btn  btn-block btn-info badgeTopColor font-weight-bold" style="background-color: #252525" >Vous consultez les commentaires</p>  
             <Home></Home>
         </div>
         <div class="row">

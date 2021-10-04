@@ -22,7 +22,7 @@
             Veuillez vérifier vos informations de connexion.
         </div>  
         <div class=' col-7 mx-auto mt-3'>
-            <router-link to="/inscription"><button  class=' text-white p-2 w-100 border-0 rounded shadow contrastBoutonNoir font-weight-bold'>INSCRIPTION</button></router-link>
+            <router-link to="/inscription"><button  class=' text-white p-2 mb-5 w-100 border-0 rounded shadow contrastBoutonNoir font-weight-bold'>INSCRIPTION</button></router-link>
         </div>
     </main>
 </template>

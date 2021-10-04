@@ -34,7 +34,7 @@
                     <h2 class="text-white text-center m-5 ">
                         Liens vers tous les messages et leurs commentaires.
                     </h2>
-                    <div class="badge btn-primary p-3 badgeList">
+                    <div class="badge btn-danger p-3 badgeList">
                             <span class="spanBadge">DATE</span>  
                             <span class="spanBadge">AUTEUR</span>
                             <span class="spanBadge">MESSAGE</span> 
@@ -42,7 +42,7 @@
                             <span class="spanBadge">VOIR</span> 
                     </div>
                     <div v-for="i in messages" :key="i">   
-                        <div class="badge btn-primary p-3 badgeList">
+                        <div class="badge btn-danger p-3 badgeList">
                             <span class="spanBadge"> Le {{ i.createdAt.slice(0,10).split("-").reverse().join(".")}} </span>  
                             <span class="spanBadge"> {{ i.userName.charAt(0).toUpperCase() + i.userName.slice(1) }} </span> 
                             <span class="spanBadge"> {{ i.message.slice(0,10) }}...</span> 

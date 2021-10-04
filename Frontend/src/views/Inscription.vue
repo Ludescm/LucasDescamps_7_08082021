@@ -4,7 +4,7 @@
         <section class="col-12 col-md-8 mt-5 mx-auto p-3 bg-light rounded">
             <form @submit.prevent="sendForm(event)">
                 <p class="text-center m-2"> <img src="../assets/signup.svg" alt="signup svg" style="width:10rem"> </p>
-                <h1 class="text-center font-weight-bold" style="font-size:4v;" >INSCRIPTION</h1>
+                <h1 class="text-center font-weight-bold" style="font-size:4vw;" >INSCRIPTION</h1>
                 <div class="form-group">
                     <label for="inputUserName">Nom d'utilisateur:</label>
                     <input v-on:keydown="invalid = false" v-model="inputUserName" type="text" class="form-control" id="inputUserName" aria-describedby="userNameHelp" placeholder="Entrez votre nom">
@@ -27,7 +27,7 @@
                 Veuillez remplir tous les champs du formulaire en suivant les instructions.
                 </div>  
          <div class=' col-7 mx-auto mt-4'>
-            <router-link to="/#"><button class='contrastBoutonNoir text-white p-2 w-100 border-0 rounded shadow font-weight-bold'>RETOUR A L'ECRAN DE CONNEXION</button></router-link>
+            <router-link to="/#"><button class='contrastBoutonNoir text-white p-2 mb-5 w-100 border-0 rounded shadow font-weight-bold'>RETOUR A L'ECRAN DE CONNEXION</button></router-link>
         </div>
     </main>
 </template>
